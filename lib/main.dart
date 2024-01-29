@@ -4,54 +4,65 @@ import 'package:audioplayers/audioplayers.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+
+  void playSound(int soundNumber) {
+    final player = AudioPlayer();
+    player.play(AssetSource('note$soundNumber.wav'));
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    color: Colors.yellow[400],
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Container(
-                        child: Image.asset('images/logoAIM.png'),
-                      ),
-                    ),
+          child:
+              Column(
+                children: [
+                  MaterialButton(
+                    color: Colors.red,
+                    onPressed: () {
+                      playSound(1);
+                    },
                   ),
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Center(
-                  child: Container(
-                    child: MaterialButton(
-                      color: Colors.teal[100],
-                      onPressed: () {
-                        final player = AudioPlayer();
-                        player.play(AssetSource('note1.wav'));
-
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: Text(
-                          'Click me',
-                          style: TextStyle(fontSize: 24.0),
-                        ),
-                      ),
-                    ),
+                  MaterialButton(
+                    color: Colors.orange,
+                    onPressed: () {
+                      playSound(2);
+                    },
                   ),
-                ),
+                  MaterialButton(
+                    color: Colors.yellow,
+                    onPressed: () {
+                      playSound(3);
+                    },
+                  ),
+                  MaterialButton(
+                    color: Colors.green,
+                    onPressed: () {
+                      playSound(4);
+                    },
+                  ),
+                  MaterialButton(
+                    color: Colors.teal,
+                    onPressed: () {
+                      playSound(5);
+                    },
+                  ),
+                  MaterialButton(
+                    color: Colors.blue,
+                    onPressed: () {
+                      playSound(6);
+                    },
+                  ),
+                  MaterialButton(
+                    color: Colors.purple,
+                    onPressed: () {
+                      playSound(7);
+                    },
+                  ),
+                ],
               ),
-            ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
