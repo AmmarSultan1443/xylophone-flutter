@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(XylophoneApp());
 
@@ -30,12 +30,17 @@ class XylophoneApp extends StatelessWidget {
                 flex: 3,
                 child: Center(
                   child: Container(
-                    child: Card(
+                    child: MaterialButton(
                       color: Colors.teal[100],
+                      onPressed: () {
+                        final player = AudioPlayer();
+                        player.play(AssetSource('note1.wav'));
+
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(30.0),
                         child: Text(
-                          adjectives.last,
+                          'Click me',
                           style: TextStyle(fontSize: 24.0),
                         ),
                       ),
